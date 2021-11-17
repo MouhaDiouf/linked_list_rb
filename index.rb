@@ -30,6 +30,53 @@ class LinkedList
         end 
         count 
     end 
+
+    def at(index)
+        count = 0
+        current = @head 
+        while(count < index)
+            current = current.next 
+            index += 1
+        end
+        current 
+    end 
+
+    def pop
+        current = @head  
+        previous = nil 
+        while !current.next.nil?
+            current = current.next 
+            previous = current
+        end 
+        previous.next = current.next 
+        current.next = nil 
+    end 
+
+    def contains?(value)
+        current = @head 
+        while (current)
+            if current.value == value 
+                return true 
+            end
+        end 
+        return false 
+
+    end 
+
+    def find(value)
+        current = @head
+        idx = 0  
+        while (current)
+
+            if current.value == value 
+                return idx
+            end
+            current = current.next 
+            idx += 1 
+
+        end 
+        return nil   
+    end 
 end 
 
 
